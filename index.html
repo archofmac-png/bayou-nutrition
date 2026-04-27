@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bayou Nutrition — Loaded Teas & Shakes in Ponchatoula, LA</title>
+<meta name="description" content="Loaded teas, protein shakes, and energizing iced beverages in Ponchatoula, Louisiana. Locally owned. #letsgetloaded" />
+<link rel="icon" type="image/jpeg" href="PICS/logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green: #6FE03A;
+    --lime: #C6F73E;
+    --pink: #FF8E8E;
+    --teal: #5BD0B0;
+    --ink: #161616;
+    --cream: #FFFBEF;
+    --shadow: 0 8px 24px rgba(0,0,0,.10);
+    --shadow-lg: 0 18px 48px rgba(0,0,0,.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  /* ───── NAV ───── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 251, 239, .92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--ink);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.6rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-brand img { height: 44px; width: auto; }
+  .nav-links { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .nav-links a {
+    text-decoration: none; font-weight: 600;
+    color: var(--ink); font-size: .95rem;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s ease;
+  }
+  .nav-links a:hover { border-bottom-color: var(--green); }
+  .nav-cta {
+    background: var(--ink); color: var(--lime) !important;
+    padding: 10px 18px !important; border-radius: 999px;
+    border-bottom: none !important;
+    font-weight: 800;
+    transition: transform .15s ease;
+  }
+  .nav-cta:hover { transform: translateY(-2px); border-bottom: none !important; }
+  @media (max-width: 640px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    position: relative;
+    padding: 80px 24px 100px;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at top left, rgba(111, 224, 58, .25), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(255, 142, 142, .25), transparent 60%),
+      var(--cream);
+  }
+  .hero-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(60px); opacity: .35;
+    pointer-events: none;
+  }
+  .hero-blob.b1 { background: var(--green); width: 320px; height: 320px; top: -60px; left: -60px; }
+  .hero-blob.b2 { background: var(--pink); width: 280px; height: 280px; bottom: -60px; right: -40px; }
+  .hero-inner { position: relative; max-width: 880px; margin: 0 auto; }
+  .hero-logo {
+    width: min(420px, 80%);
+    margin: 0 auto 28px;
+    filter: drop-shadow(0 14px 30px rgba(0,0,0,.15));
+  }
+  .hero h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--green); }
+  .hero p.tagline {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    max-width: 580px;
+    margin: 0 auto 36px;
+    color: #444;
+  }
+  .hero-ctas {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+    border: 3px solid var(--ink);
+  }
+  .btn-primary {
+    background: var(--green); color: var(--ink);
+    box-shadow: var(--shadow);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .btn-ghost {
+    background: var(--cream); color: var(--ink);
+  }
+  .btn-ghost:hover { transform: translateY(-3px); background: #fff; }
+
+  .hashtag {
+    display: inline-block;
+    margin-top: 36px;
+    font-family: 'Pacifico', cursive;
+    color: var(--pink);
+    font-size: 1.4rem;
+    transform: rotate(-3deg);
+  }
+
+  /* ───── SECTIONS ───── */
+  section {
+    padding: 90px 24px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    text-align: center;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .section-sub {
+    text-align: center;
+    color: #555;
+    max-width: 620px;
+    margin: 0 auto 56px;
+    font-size: 1.05rem;
+  }
+
+  /* ───── ABOUT ───── */
+  .about {
+    background: #fff;
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 820px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .about-text h2 { margin-bottom: 18px; }
+  .about-text p {
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 18px;
+  }
+  .about-text .small {
+    font-size: .9rem;
+    color: #777;
+    font-style: italic;
+  }
+  .about-img {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 4px solid var(--ink);
+    box-shadow: var(--shadow-lg);
+    transform: rotate(-1.5deg);
+  }
+  .about-img img { width: 100%; height: auto; }
+
+  /* ───── DRINKS / VIBE ───── */
+  .drinks { background: var(--cream); }
+  .drink-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 820px) {
+    .drink-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  }
+  .drink-card {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .drink-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .drink-card .img-wrap {
+    aspect-ratio: 4 / 5;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .drink-card img { width: 100%; height: 100%; object-fit: cover; }
+  .drink-card .body {
+    padding: 20px 22px 24px;
+  }
+  .drink-card h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .drink-card p { color: #555; font-size: .95rem; }
+
+  /* ───── HOURS / FIND US ───── */
+  .find {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .find .section-title { color: var(--lime); }
+  .find .section-sub { color: #ccc; }
+  .find-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  @media (max-width: 820px) {
+    .find-grid { grid-template-columns: 1fr; }
+  }
+  .find-info {
+    background: #1f1f1f;
+    border-radius: 22px;
+    padding: 36px 32px;
+    border: 2px solid #2c2c2c;
+  }
+  .find-info h3 {
+    font-family: 'Pacifico', cursive;
+    color: var(--green);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  .find-info p { color: var(--cream); font-size: 1rem; margin-bottom: 6px; }
+  .find-info p.email-line { font-size: .92rem; word-break: break-all; }
+  .find-info a { color: var(--lime); text-decoration: underline; text-decoration-color: rgba(198,247,62,.4); }
+  .find-info a:hover { text-decoration-color: var(--lime); }
+  .info-block { margin-bottom: 26px; }
+  .info-block:last-child { margin-bottom: 0; }
+  .hours-row {
+    display: flex; justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #333;
+    font-size: 1rem;
+  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-day { color: #ccc; }
+  .hours-time { color: var(--cream); font-weight: 600; }
+  .map-wrap {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 2px solid #2c2c2c;
+    min-height: 380px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(111,224,58,.18), transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(255,142,142,.18), transparent 55%),
+      linear-gradient(135deg, #1a1a1a, #242424);
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .map-wrap::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,251,239,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,251,239,.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .map-card { position: relative; z-index: 1; }
+  .map-card .pin {
+    font-size: 3rem; line-height: 1; margin-bottom: 10px;
+    filter: drop-shadow(0 6px 14px rgba(111,224,58,.45));
+  }
+  .map-card h3 {
+    font-family: 'Pacifico', cursive;
+    color: var(--lime);
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+  .map-card p { color: #ddd; font-size: 1rem; margin-bottom: 22px; }
+  .map-card .btn-directions {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--green);
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 3px solid var(--lime);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .map-card .btn-directions:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(111,224,58,.35);
+  }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--cream);
+    padding: 50px 24px 30px;
+    text-align: center;
+    border-top: 4px solid var(--ink);
+  }
+  .footer-socials {
+    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--ink);
+    transition: transform .15s ease;
+  }
+  .social-btn:hover { transform: translateY(-2px); }
+  .footer-shop {
+    margin: 30px 0 26px;
+  }
+  .footer-shop a {
+    display: inline-block;
+    padding: 12px 26px;
+    background: transparent;
+    border: 2px dashed var(--ink);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: .92rem;
+    font-weight: 600;
+    transition: background .15s ease;
+  }
+  .footer-shop a:hover { background: rgba(0,0,0,.05); }
+  .footer-meta {
+    color: #777;
+    font-size: .85rem;
+    margin-top: 18px;
+  }
+  .footer-meta a { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">
+      <img src="PICS/logo.jpg" alt="Bayou Nutrition" />
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#find">Find Us</a>
+      <a class="nav-cta" href="tel:+19854671777">Call to Order</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<header class="hero" id="top">
+  <span class="hero-blob b1"></span>
+  <span class="hero-blob b2"></span>
+  <div class="hero-inner">
+    <img class="hero-logo" src="PICS/logo.jpg" alt="Bayou Nutrition gator logo" />
+    <h1>Loaded Teas. <span class="accent">Bayou Energy.</span></h1>
+    <p class="tagline">
+      Energizing iced teas, protein shakes, and meal-replacement goodness — served fresh in the heart of Ponchatoula.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="tel:+19854671777">📞 Call to Order</a>
+      <a class="btn btn-ghost" href="#find">Find Us</a>
+    </div>
+    <div><span class="hashtag">#letsgetloaded</span></div>
+  </div>
+</header>
+
+<!-- ───── ABOUT ───── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title" style="text-align:left;">Sip the Bayou.</h2>
+        <p>
+          Bayou Nutrition is your local stop in Ponchatoula for energizing loaded teas, creamy protein shakes,
+          and feel-good iced beverages — made fresh, made fun, made for you.
+        </p>
+        <p>
+          Whether you're powering through a long day, post-workout, or just need a midday lift, our menu
+          is built around <strong>Herbalife&reg; nutrition mixes</strong> for clean energy and real flavor.
+        </p>
+        <p class="small">Stop in, grab a seat by the wall, and snap that #letsgetloaded pic.</p>
+      </div>
+      <div class="about-img">
+        <img src="PICS/tea1.jpg" alt="A loaded tea in front of the #letsgetloaded wall at Bayou Nutrition" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── DRINKS / VIBE ───── -->
+<section class="drinks" id="drinks">
+  <div class="container">
+    <h2 class="section-title">What We Pour</h2>
+    <p class="section-sub">Big flavor. Big energy. Big cup.</p>
+    <div class="drink-grid">
+      <div class="drink-card">
+        <div class="img-wrap"><img src="PICS/teameme2.jpg" alt="Layered loaded tea — green and red gradient" /></div>
+        <div class="body">
+          <h3>Loaded Teas</h3>
+          <p>Vibrant, ice-cold, energizing. Custom flavors layered just how you like 'em.</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <div class="img-wrap"><img src="PICS/tea1.jpg" alt="Refreshing iced tea at Bayou Nutrition" /></div>
+        <div class="body">
+          <h3>Protein Shakes</h3>
+          <p>Creamy, dreamy meal-replacement shakes. Fuel up without slowing down.</p>
+        </div>
+      </div>
+      <div class="drink-card">
+        <div class="img-wrap"><img src="PICS/teameme1.jpg" alt="I think my soulmate might be tea — Bayou Nutrition vibe" /></div>
+        <div class="body">
+          <h3>The Bayou Vibe</h3>
+          <p>Friendly faces, fun flavors, and a wall worth a photo. Come hang out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FIND US ───── -->
+<section class="find" id="find">
+  <div class="container">
+    <h2 class="section-title">Find Us &amp; Sip With Us</h2>
+    <p class="section-sub">Pull up to the bayou. We'll have a cold one waiting.</p>
+    <div class="find-grid">
+      <div class="find-info">
+        <div class="info-block">
+          <h3>Visit</h3>
+          <p>1545 Hwy 51, Suite 1</p>
+          <p>Ponchatoula, LA 70454</p>
+        </div>
+        <div class="info-block">
+          <h3>Hours</h3>
+          <div class="hours-row"><span class="hours-day">Mon – Fri</span><span class="hours-time">7:00 AM – 3:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 1:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">Closed</span></div>
+        </div>
+        <div class="info-block">
+          <h3>Contact</h3>
+          <p>📞 <a href="tel:+19854671777">(985) 467-1777</a></p>
+          <p class="email-line">✉️ <a href="mailto:bayounutritionponchatoula@gmail.com">bayounutritionponchatoula@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <div class="map-card">
+          <div class="pin">📍</div>
+          <h3>Right off Hwy 51</h3>
+          <p>Easy to find. Easier to drink.</p>
+          <a class="btn-directions"
+             href="https://www.google.com/maps/dir/?api=1&destination=1545+Hwy+51+Suite+1+Ponchatoula+LA+70454"
+             target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="footer-socials">
+    <a class="social-btn" href="https://www.facebook.com/bayounutritionla/" target="_blank" rel="noopener">
+      <span>📘</span> Facebook
+    </a>
+    <a class="social-btn" href="https://www.instagram.com/bayounutrition2/" target="_blank" rel="noopener">
+      <span>📷</span> Instagram
+    </a>
+  </div>
+
+  <!--
+    HERBALIFE REFERRAL LINK
+    Replace href="#" with the owner's GoHerbalife referral URL
+    (e.g. https://www.goherbalife.com/{owner-id}/en-US)
+  -->
+  <div class="footer-shop">
+    <a href="#" target="_blank" rel="noopener">Shop Herbalife&reg; products →</a>
+  </div>
+
+  <p class="footer-meta">
+    &copy; <span id="year"></span> Bayou Nutrition · Ponchatoula, LA · #letsgetloaded
+  </p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

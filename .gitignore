@@ -1,0 +1,14 @@
+# Internal / dev tooling — not for the public site
+.claude/
+next steps/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+*~

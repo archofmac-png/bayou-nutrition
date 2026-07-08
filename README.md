@@ -1,7 +1,7 @@
 # Bayou Nutrition — Ponchatoula, LA
 
 Loaded teas, protein shakes, and energizing iced beverages.
-**1545 Hwy 51, Suite 1 · Ponchatoula, LA 70454 · (985) 467-1777**
+**1671 Highway 51 · Ponchatoula, LA 70454 · (985) 467-1777**
 
 🌐 Live: https://archofmac-png.github.io/bayou-nutrition/
 📘 [Facebook](https://www.facebook.com/bayounutritionla/) · 📷 [Instagram](https://www.instagram.com/bayounutrition2/)
